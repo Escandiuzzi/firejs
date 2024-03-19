@@ -1,3 +1,5 @@
+import { Key } from "react";
+
 export default function UserList({ data }: { data: Array<{ id: String, name: String, lastName: String, born: number }> }) {
     return (
         <div className="container mx-auto px-4 py-8">
@@ -13,7 +15,7 @@ export default function UserList({ data }: { data: Array<{ id: String, name: Str
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                     {data.map(user => (
-                        <tr>
+                        <tr key={user.id as Key}>
                             <td className="px-6 py-4 whitespace-nowrap text-gray-600">{user.id}</td>
                             <td className="px-6 py-4 whitespace-nowrap text-gray-600">{user.name}</td>
                             <td className="px-6 py-4 whitespace-nowrap text-gray-600">{user.lastName}</td>
