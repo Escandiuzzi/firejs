@@ -16,7 +16,7 @@ export default function Home({ displayName, email }: { displayName: string, emai
             [e.target.name]: e.target.value
         });
     };
-    
+
     const [dataSent, isDataSent] = useState(false);
 
     const handleSubmit = async (e: any) => {
@@ -33,22 +33,22 @@ export default function Home({ displayName, email }: { displayName: string, emai
                 born: ''
             });
         }, 2000);
-        
+
         console.log(formData);
     };
 
-    const [dbData, setDbData] = useState(Array<{id: string, name: string, lastName: string, born: number }>)
+    const [dbData, setDbData] = useState(Array<{ id: string, name: string, lastName: string, born: number }>)
 
     useEffect(() => {
         handleSyncDbData();
-    });
+    }, []);
 
     async function handleSyncDbData() {
         let data = getAllData();
 
         console.log("Fetching data from database");
 
-        data.then(users => setDbData(users));        
+        data.then(users => setDbData(users));
     }
 
     return (
